@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taipei Garbage Truck Map · 台北垃圾車地圖</title>
+    <meta name="description" content="Map of every Taipei City garbage truck stop with arrival times, routes, and today's trash and recycling schedule. 台北市垃圾車停靠點、時間與路線地圖。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Taipei Trash Map" />
+    <meta property="og:title" content="Taipei Garbage Truck Map · 台北垃圾車地圖" />
+    <meta property="og:description" content="Every Taipei City garbage truck stop on a map, with arrival times, routes, and today's trash and recycling schedule." />
+    <meta property="og:url" content="https://jusrin.dev/trash-map/" />
+    <meta property="og:image" content="https://jusrin.dev/trash-map/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_TW" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Taipei Garbage Truck Map · 台北垃圾車地圖" />
+    <meta name="twitter:description" content="Every Taipei City garbage truck stop on a map, with arrival times and routes." />
+    <meta name="twitter:image" content="https://jusrin.dev/trash-map/og.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" href="favicon.ico" sizes="48x48" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.css" />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <aside id="panel">
+      <header>
+        <h1>Taipei Trash Map</h1>
+        <div id="today"></div>
+      </header>
+
+      <section class="controls">
+        <label class="range">
+          Arrives between <span id="range-label"></span>
+          <div class="dual">
+            <input id="from" type="range" min="840" max="1470" step="15" value="840" />
+            <input id="to" type="range" min="840" max="1470" step="15" value="1470" />
+          </div>
+        </label>
+        <div class="buttons">
+          <button id="now-btn" type="button">Next hour</button>
+          <button id="reset-btn" type="button">Home</button>
+        </div>
+        <div id="count"></div>
+        <div id="home-hint" class="hint"></div>
+      </section>
+
+      <section id="list-section">
+        <h2 id="list-title"></h2>
+        <ol id="list"></ol>
+      </section>
+
+      <footer>
+        <div id="legend"></div>
+        <div id="source"></div>
+      </footer>
+    </aside>
+    <div id="map"></div>
+    <script src="https://unpkg.com/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+    <script src="data/stops.js"></script>
+    <script src="src/schedule.js"></script>
+    <script src="src/main.js"></script>
+  </body>
+</html>

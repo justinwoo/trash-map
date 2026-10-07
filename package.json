@@ -1,0 +1,8 @@
+{
+  "name": "trash-map",
+  "private": true,
+  "scripts": {
+    "fetch-data": "node scripts/fetch-data.mjs",
+    "clean": "node -e \"require('fs').rmSync('.tmp',{recursive:true,force:true})\""
+  }
+}
